@@ -1,4 +1,3 @@
 # sre-challenge
 
-TODO: Enter the cookbook description here.
-
+sre challenge repository
