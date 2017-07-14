@@ -1,0 +1,6 @@
+*nat
+# Port 80 for http
+-A FWR -p tcp -m tcp --dport 80 -j ACCEPT
+
+# Redirect anything on eth0 coming to port 80 to local port 443
+-A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 443

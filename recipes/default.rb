@@ -4,6 +4,7 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
+# Apache2 installation and configuration
 apt_update
 package 'apache2'
 
@@ -65,4 +66,20 @@ end
 service 'apache2' do
   supports status: true, restart: true, reload: true
   action %i[enable start]
+end
+
+# Host based firewall rule configuration
+
+include_recipe 'iptables'
+
+iptables_rule 'http' do
+  action :enable
+end
+
+ iptables_rule 'https' do
+   action :enable
+ end
+
+iptables_rule 'ssh' do
+  action :enable
 end
